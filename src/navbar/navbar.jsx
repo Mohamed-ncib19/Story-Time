@@ -1,0 +1,87 @@
+import NavbarIcon from "./navbarIcon";
+import { useState } from "react";
+import SearchAppBar from "./searchBar";
+import headerLogo from '../assets/images/whiteLogo.png';
+import data from '../blogsData/blogsData.json'
+
+const Navbar = () => {
+  const [navClassName, setnavClassName] = useState("hidden md:flex md:flex-row  flex-col justify-center items-center  m-auto  text-white");
+  const [iconClassName, setIconClassName] = useState("float-right md:hidden text-3xl bg-slate-500 p-2 text-white rounded-md m-[20px]")
+  const [sideBarClassName, setSideBarClassName] = useState("hidden")
+  
+  const sideMenu = () => {
+      const newNavClassName = navClassName === "hidden md:flex md:flex-row  flex-col justify-center items-center  m-auto  text-white"
+        ? "md:flex flex md:flex-row flex-col  float-right text-white"
+        : "hidden md:flex md:flex-row  flex-col justify-center items-center  m-auto  text-white";
+
+    const newIconClassName = iconClassName === "float-right md:hidden text-3xl bg-slate-500 p-2 text-white rounded-md  m-[20px]"
+      ? "float-right md:hidden text-3xl bg-slate-500 p-2 text-white rounded-md m-[20px]"
+      : "float-right md:hidden text-3xl bg-slate-500 p-2 text-white rounded-md  m-[20px]";
+    
+    const newSideBarClassName = sideBarClassName ==="hidden"
+    ? "border-l-2  flex-col float-right h-screen p-2 gap-4 md:hidden flex bg-[#161819] z-auto w-[50vw]"
+    :"hidden"
+
+    setnavClassName(newNavClassName);
+    setIconClassName(newIconClassName);
+    setSideBarClassName(newSideBarClassName)
+  };
+
+  
+  const  search=()=>{
+    let search = document.querySelector('#search')
+    console.log(search)}
+  return (
+    <div className="bg-[#161819] w-screen">
+      <nav
+        id="navbar"
+        className="
+          flex
+          flex-wrap
+          justify-between
+          m-auto
+          border-b-[1px]
+          p-4
+          md:justify-around
+          
+          
+          
+        "
+      >
+        <a href="/" className="w-[20%] lg:w-[15%] float-left my-auto">
+          <img src={headerLogo} alt="Logo Not Found " className="w-[100%] h-auto lg:w-[60%]" />
+        </a>
+
+        <div id="links" className="md:flex md:justify-between">
+          
+          <div id="link" className="hidden md:flex md:flex-row space-x-2 float-right m-auto text-center text-white">
+            <a className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " href="/">
+              Home
+            </a>
+            <a className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " href="/">
+              New blog
+            </a>
+            <SearchAppBar data={data} />
+          </div>
+          <button id="icon" onClick={sideMenu} className={iconClassName}>
+            <NavbarIcon />
+          </button>
+        </div>
+        
+      </nav>
+      <div id="sidebar" className={sideBarClassName}>
+      <div id="link" className={navClassName}>
+            <a className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" href="/">
+              Home
+            </a>
+            <a className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" href="/">
+              New blog
+            </a>
+            <SearchAppBar data={data} />
+          </div>
+        </div>
+    </div>
+  );
+};
+
+export default Navbar;
