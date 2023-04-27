@@ -2,7 +2,7 @@ import NavbarIcon from "./navbarIcon";
 import { useState } from "react";
 import SearchAppBar from "./searchBar";
 import headerLogo from '../assets/images/whiteLogo.png';
-import data from '../blogsData/blogsData.json'
+import data from '../blogsData'
 
 const Navbar = () => {
   const [navClassName, setnavClassName] = useState("hidden md:flex md:flex-row  flex-col justify-center items-center  m-auto  text-white");

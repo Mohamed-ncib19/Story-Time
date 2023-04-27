@@ -3,20 +3,18 @@ import { useState,useEffect } from 'react';
 import FetchData from './fetchData';
 import Hero from './hero';
 import Loading from './loading';
+import  blogs  from '../blogsData';
 
 const Home = () => {
     const [data,setData] = useState(null)
     const [isLoading , setIsLoading] = useState(true)
 
     useEffect(()=>{
-       setTimeout(()=>{
-        fetch('http://localhost:8000/blogs')
-        .then(response =>{return response.json()})
-        .then(mydata => {
-            setData(mydata)
+        fetch = () => {
+            setData(blogs)
             setIsLoading(false)
-        })
-       },1000)
+        }
+        fetch()
     },[]);
 
     return ( 
