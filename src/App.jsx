@@ -1,4 +1,4 @@
-import { BrowserRouter as Router , Route , Routes } from 'react-router-dom'
+import { BrowserRouter as Router , Route , Routes  } from 'react-router-dom'
 import './index.css'
 import Navbar from './navbar/navbar'
 import Home from './home/homePage'
@@ -15,9 +15,10 @@ function App() {
           <Navbar />
           <Routes>
 
-            <Route path='/' exact element={<Home />} />
+            <Route exact path='/' element={<Home />} />
             <Route path='/New-Blog' element={<NewBlog />} />
             <Route path='/blogs/:ID' element={<BlogContent data={data} />} />
+            
           </Routes>
       </div>
     </Router>

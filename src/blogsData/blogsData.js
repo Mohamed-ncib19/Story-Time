@@ -22,6 +22,24 @@ const blogs =  [
         "title":"world tour",
         "body":"      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus animi vel laudantium saepe itaque sint dolorem reprehenderit, voluptas ex reiciendis similique facere dolore eum deleniti expedita voluptatum vero dolorum.",
         "author":"writer3"
+    },
+    {
+        "id":"5",
+        "title":"thank god",
+        "body":"      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus animi vel laudantium saepe itaque sint dolorem reprehenderit, voluptas ex reiciendis similique facere dolore eum deleniti expedita voluptatum vero dolorum.",
+        "author":"writer3"
+    },
+    {
+        "id":"6",
+        "title":"trauma",
+        "body":"      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus animi vel laudantium saepe itaque sint dolorem reprehenderit, voluptas ex reiciendis similique facere dolore eum deleniti expedita voluptatum vero dolorum.",
+        "author":"writer3"
+    },
+    {
+        "id":"7",
+        "title":"I love JS <3",
+        "body":"      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus animi vel laudantium saepe itaque sint dolorem reprehenderit, voluptas ex reiciendis similique facere dolore eum deleniti expedita voluptatum vero dolorum.",
+        "author":"writer3"
     }
     ]
     export default blogs;
