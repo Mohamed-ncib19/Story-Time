@@ -1,8 +1,9 @@
-import NavbarIcon from "./navbarIcon";
 import { useState } from "react";
-import SearchAppBar from "./searchBar";
 import headerLogo from '../assets/images/whiteLogo.png';
-import data from '../blogsData'
+import data from '../blogsData/blogsData.js'
+import NavbarIcon from "./navbarIcon";
+import SearchAppBar from "./searchBar";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navClassName, setnavClassName] = useState("hidden md:flex md:flex-row  flex-col justify-center items-center  m-auto  text-white");
@@ -48,19 +49,19 @@ const Navbar = () => {
           
         "
       >
-        <a href="/" className="w-[20%] lg:w-[15%] float-left my-auto">
+        <Link to="/" className="w-[20%] lg:w-[15%] float-left my-auto">
           <img src={headerLogo} alt="Logo Not Found " className="w-[100%] h-auto lg:w-[60%]" />
-        </a>
+        </Link>
 
         <div id="links" className="md:flex md:justify-between">
           
           <div id="link" className="hidden md:flex md:flex-row space-x-2 float-right m-auto text-center text-white">
-            <a className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " href="/">
+            <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/">
               Home
-            </a>
-            <a className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " href="/">
+            </Link>
+            <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/NewBlog">
               New blog
-            </a>
+            </Link>
             <SearchAppBar data={data} />
           </div>
           <button id="icon" onClick={sideMenu} className={iconClassName}>
@@ -71,12 +72,12 @@ const Navbar = () => {
       </nav>
       <div id="sidebar" className={sideBarClassName}>
       <div id="link" className={navClassName}>
-            <a className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" href="/">
+            <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/">
               Home
-            </a>
-            <a className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" href="/">
+            </Link>
+            <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/NewBlog">
               New blog
-            </a>
+            </Link>
             <SearchAppBar data={data} />
           </div>
         </div>

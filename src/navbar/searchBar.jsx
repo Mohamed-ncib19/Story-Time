@@ -48,17 +48,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar(props) {
   const [searchValue, setSearchValue] = useState('');
-  let data = props.data.blogs
+  let data = props.data
 
   const handleSearchInputChange = (event) => {
+    /*Change the searchValue each time the event activated*/
     setSearchValue(event.target.value);
+    
   };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
         const result = (data.filter((blog)=>(blog.author === searchValue)).length != 0)
         ? data.filter((blog)=>(blog.author === searchValue))
-        :alert('not found')
+        :alert('Writer not found')
         console.log(result)
         
         

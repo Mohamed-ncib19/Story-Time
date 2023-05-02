@@ -1,28 +1,19 @@
-
-import { useState,useEffect } from 'react';
-import FetchData from './fetchData';
+import BlogPreview from './blogPreview';
 import Hero from './hero';
 import Loading from './loading';
-import  blogs  from '../blogsData';
+import useFech from './useFetch';
 
 const Home = () => {
-    const [data,setData] = useState(null)
-    const [isLoading , setIsLoading] = useState(true)
-
-    useEffect(()=>{
-        fetch = () => {
-            setData(blogs)
-            setIsLoading(false)
-        }
-        fetch()
-    },[]);
-
+   const {data,isLoading} = useFech()
+    
+   
     return ( 
         <div id="home" className="bg-[#262A2E] h-screen w-screen">
             <Hero />
-        {/*logical form if the value was true the compiler excute the next part*/ }
+            {/*logical form if the value was true the compiler excute the next part*/ }
             {isLoading && <Loading  />}
-          {data && <FetchData  data={data} />}
+            {data && <BlogPreview  data={data} />}
+          
         </div>
      );
 }
