@@ -6,9 +6,9 @@ const SearchedWriter = () => {
   const location = useLocation();
   const searchResult = location.state || [];
    return (
-    <div id="SearchedWriter" className="bg-[#262A2E] w-full h-screen flex justify-center items-center">
+    <div id="SearchedWriter" className="bg-[#262A2E] w-screen h-screen  m-auto">
       <Hero />
-      <div>
+      <div className=' bg-[#262A2E] h-screen w-screen'>
         
        {searchResult && <BlogPreview data={searchResult} />}
       </div>
