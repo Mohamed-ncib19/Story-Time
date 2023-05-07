@@ -16,7 +16,7 @@ function App() {
           <Navbar />
           
           <Routes>
-            <Route exact  path='/' element={<Home />} />
+            <Route exact  path='/Story-Time' element={<Home />} />
             <Route path='/New-Blog' element={<NewBlog />} />
             <Route path='/blogs/:ID' element={<BlogContent data={data} />} />
             <Route path='/search-by-writer' element={<SearchedWriter />} />

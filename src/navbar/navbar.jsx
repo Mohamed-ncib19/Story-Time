@@ -49,14 +49,14 @@ const Navbar = () => {
           
         "
       >
-        <Link to="/" className="w-[20%] lg:w-[15%] float-left my-auto">
+        <Link to="/Story-Time" className="w-[20%] lg:w-[15%] float-left my-auto">
           <img src={headerLogo} alt="Logo Not Found " className="w-[100%] h-auto lg:w-[60%]" />
         </Link>
 
         <div id="links" className="md:flex md:justify-between">
           
           <div id="link" className="hidden md:flex md:flex-row space-x-2 float-right m-auto text-center text-white">
-            <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/">
+            <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/Story-Time">
               Home
             </Link>
             <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/New-Blog">
@@ -72,7 +72,7 @@ const Navbar = () => {
       </nav>
       <div id="sidebar" className={sideBarClassName}>
       <div id="link" className={navClassName}>
-            <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/">
+            <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/Story-Time">
               Home
             </Link>
             <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/New-Blog">
