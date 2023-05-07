@@ -20,6 +20,7 @@
     "git": "^0.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.3",
     "react-router-dom": "^6.11.0"
   },
   "devDependencies": {

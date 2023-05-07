@@ -59,7 +59,7 @@ const Navbar = () => {
             <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/">
               Home
             </Link>
-            <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/NewBlog">
+            <Link className="hover:border-white hover:border-b-[2px] p-2  hover:text-white m-auto " to="/New-Blog">
               New blog
             </Link>
             <SearchAppBar data={data} />
@@ -75,7 +75,7 @@ const Navbar = () => {
             <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/">
               Home
             </Link>
-            <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/NewBlog">
+            <Link className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto" to="/New-Blog">
               New blog
             </Link>
             <SearchAppBar data={data} />

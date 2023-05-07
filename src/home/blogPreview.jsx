@@ -4,7 +4,7 @@ import travel from '../assets/images/travel.jpeg'
     let data = props.data
     return ( 
         
-       <div id="blogList" className="flex flex-col gap-4 bg-[#262A2E] w-full" >
+       <div id="blogList" className="flex flex-col gap-4 bg-[#262A2E] w-full " >
             {data.map((blog)=>(
                 <Link to={`/blogs/${blog.id}`}>
                     <div id="blog-Preview" key={blog.id} className="text-white flex md:flex-row flex-col bg-[#161819] justify-start items-start m-auto rounded-3xl  hover:cursor-pointer w-[80vw] p-8 gap-8 md:w-[60vw]">

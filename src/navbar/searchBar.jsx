@@ -3,6 +3,8 @@ import { styled, alpha } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
+import SenderData from '../home/senderData';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -47,41 +49,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar(props) {
-  const [searchValue, setSearchValue] = useState('');
-  let data = props.data
-
-  const handleSearchInputChange = (event) => {
-    /*Change the searchValue each time the event activated*/
-    setSearchValue(event.target.value);
-    
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-        const result = (data.filter((blog)=>(blog.author === searchValue)).length != 0)
-        ? data.filter((blog)=>(blog.author === searchValue))
-        :alert('Writer not found')
-        console.log(result)
-        
-        
-    }
-  };
-
+ 
+  const {searchResult ,searchValue,handleKeyPress, handleSearchInputChange}= SenderData(props.data);
   return (
     <Toolbar>
       <Search>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <StyledInputBase
-          placeholder="Search…"
-          inputProps={{ 'aria-label': 'search' }}
-          value={searchValue}
-          onChange={handleSearchInputChange}
-          onKeyDown={handleKeyDown}
-        />
+        <Link to="/search-by-writer" state={searchResult}>
+          <StyledInputBase
+            placeholder="Search…"
+            inputProps={{ 'aria-label': 'search' }}
+            value={searchValue}
+            onChange={handleSearchInputChange}
+            onKeyPress={handleKeyPress}
+          />
+        </Link>
       </Search>
     </Toolbar>
-    
   );
 }
