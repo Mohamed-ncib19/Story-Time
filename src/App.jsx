@@ -19,7 +19,7 @@ function App() {
             <Route exact  path='/' element={<Home />} />
             <Route path='/New-Blog' element={<NewBlog />} />
             <Route path='/blogs/:ID' element={<BlogContent data={data} />} />
-            <Route path='/Search-by-writer' element={<SearchedWriter />} />
+            <Route path='/search-by-writer' element={<SearchedWriter />} />
           </Routes>
          
           

@@ -1,8 +1,7 @@
 import React from 'react';
 import Hero from './hero';
 import BlogPreview from './blogPreview'
-import { useLocation } from 'react-router-dom';
-
+import {useLocation} from 'react-router-dom'
 const SearchedWriter = () => {
   const location = useLocation();
   const searchResult = location.state || [];

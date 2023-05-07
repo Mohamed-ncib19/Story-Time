@@ -4,7 +4,6 @@ import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
-import SenderData from '../home/senderData';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -49,21 +48,38 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar(props) {
- 
-  const {searchResult ,searchValue,handleKeyPress, handleSearchInputChange}= SenderData(props.data);
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
+
+  const handleSearchInputChange = (event) => {
+    const value = event.target.value;
+    setSearchValue(value);
+  };
+
+  const handleSearch = () => {
+    const result = props.data.filter((blog) => blog.author === searchValue);
+    setSearchResult(result);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' && searchValue !== '') {
+      handleSearch();
+    }
+  };
+
   return (
     <Toolbar>
       <Search>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <Link to="/search-by-writer" state={searchResult}>
+        <Link to='/search-by-writer' state={searchResult}>
           <StyledInputBase
             placeholder="Search…"
             inputProps={{ 'aria-label': 'search' }}
             value={searchValue}
             onChange={handleSearchInputChange}
-            onKeyPress={handleKeyPress}
+            onKeyUp={handleKeyPress}
           />
         </Link>
       </Search>
