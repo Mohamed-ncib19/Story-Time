@@ -3,7 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -49,23 +49,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar(props) {
   const [searchValue, setSearchValue] = useState('');
-  const [searchResult, setSearchResult] = useState([]);
+  const navigate = useNavigate();
 
   const handleSearchInputChange = (event) => {
-    const value = event.target.value;
-    setSearchValue(value);
+    setSearchValue(event.target.value);
+
   };
 
   const handleSearch = () => {
-    const result = props.data.filter((blog) => blog.author === searchValue);
-    setSearchResult(result);
+    const result = props.data.filter((blog) => blog.author === searchValue || blog.title === searchValue);
+    setSearchValue(''); 
+    navigate('/search-by-writer',{state:{searchResult:result}});
   };
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter' && searchValue !== '') {
-      handleSearch();
-    }
-  };
 
   return (
     <Toolbar>
@@ -73,16 +69,19 @@ export default function SearchAppBar(props) {
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <Link to='/search-by-writer' state={searchResult}>
           <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ 'aria-label': 'search' }}
+            type="text"
+            placeholder="Author | Title"
             value={searchValue}
             onChange={handleSearchInputChange}
-            onKeyUp={handleKeyPress}
+            onKeyPress={(event) => {
+              if (event.key === 'Enter') {
+                handleSearch();
+              }}}
+            
           />
-        </Link>
       </Search>
     </Toolbar>
   );
 }
+ 

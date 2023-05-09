@@ -7,7 +7,6 @@ const BlogContent = (props) => {
     const {ID} = useParams()
     const data = props.data
     const blog = data.filter((blog)=> blog.id ===ID)
-   
     
     return ( 
         <div id="blog-content" className="bg-[#262A2E] w-screen h-full text-white " key={blog[0].id}>  
