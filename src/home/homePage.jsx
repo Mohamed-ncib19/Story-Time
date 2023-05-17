@@ -1,5 +1,4 @@
 import BlogPreview from './blogPreview';
-import SearchedWriter from './searchedWriter';
 import Hero from './hero';
 import Loading from './loading';
 import useFech from './useFetch';
