@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import CalendarIcon from "./calendarIcon";
 import heroPic from '../assets/images/hero.jpeg';
 import '../css/animation.css'
@@ -11,11 +10,9 @@ const Hero = () => {
     let day = d.getDate()
     let date = month + ' ' + day + ',' + year; 
     
-  
-
 
     return ( 
-        <div id="back-in-up" className=" flex flex-col md:flex-row justify-around items-center flex-wrap p-12 m-auto md:h-auto bg-[#262A2E] float-left">
+        <div id="hero" className=" flex flex-col md:flex-row justify-around items-center flex-wrap p-12 m-auto md:h-auto bg-[#262A2E] float-left animation">
             <div id="text" className="flex flex-col w-full md:w-[40%]  m-auto space-x-1 gap-3 ">
                 <h1 className="text-[40px] text-white hover:underline hover:underline-offset-8 hover:decoration-[#64429e] transition-all duration-500">Never let your memories be greater than your dreams </h1>
                 <p className="text-[18px] text-white ">Before long the searchlight discovered some distance away a schooner with all sails set, apparently the same vessel which had been noticed earlier in the evening.</p>

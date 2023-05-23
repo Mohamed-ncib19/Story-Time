@@ -1,4 +1,4 @@
-@keyframes backInUp {
+ @keyframes backInUp {
     0% {
       transform: translateY(1100px);
       opacity: 0;
@@ -13,10 +13,9 @@
     }
   }
   
-  #back-in-up {
+.animation{
     animation-name: backInUp;
     animation-duration: 1s;
     animation-timing-function: ease-out;
     animation-iteration-count: 1;
-  }
-  
+}    

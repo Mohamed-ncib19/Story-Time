@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Router>
-        <div id="App"  >
+        <div id="App" className='bg-[##262A2E]' >
           <Navbar />
           
           <Routes>

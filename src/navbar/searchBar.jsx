@@ -57,8 +57,12 @@ export default function SearchAppBar(props) {
 
   const handleSearch = () => {
     const result = props.data.filter((blog) => (blog.author).toUpperCase() === (searchValue).toUpperCase() || (blog.title).toUpperCase() === searchValue.toUpperCase());
+    if(result.length >0){
     setSearchValue(''); 
-    navigate('/search-by-writer',{state:{searchResult:result}});
+    navigate('/search-by-writer',{state:{searchResult:result}});}
+    else{
+      alert('blog not found')
+    }
   };
 
 
