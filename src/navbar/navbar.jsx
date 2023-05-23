@@ -20,7 +20,7 @@ const Navbar = () => {
       : "float-right md:hidden text-3xl bg-slate-500 p-2 text-white rounded-md  m-[20px]";
     
     const newSideBarClassName = sideBarClassName ==="hidden"
-    ? "border-l-2  flex-col float-right h-screen p-2 gap-4 md:hidden flex bg-[#161819] z-auto w-[50vw]"
+    ? "border-l-2  flex-col float-right h-screen p-2 gap-4 md:hidden flex bg-[#161819] z-auto w-[50vw] "
     :"hidden"
 
     setnavClassName(newNavClassName);

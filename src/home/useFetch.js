@@ -5,7 +5,7 @@ const useFech =()=>{
     const [data,setData] = useState(null)
     const [isLoading , setIsLoading] = useState(true)
 
-    useEffect(()=>{
+    useEffect(()=>{ 
    
         const  fetch = ()=>{
            setData(blogs)

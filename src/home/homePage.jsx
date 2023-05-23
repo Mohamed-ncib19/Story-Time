@@ -7,7 +7,7 @@ const Home = () => {
     
    
     return ( 
-        <div id="home" className="bg-[#262A2E] h-screen w-screen">
+        <div id="home" className="bg-[#262A2E] h-screen w-screen ">
            <Hero />
             {/*logical form if the value was true the compiler excute the next part*/ }
             {isLoading && <Loading  />}

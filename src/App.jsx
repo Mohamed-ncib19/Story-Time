@@ -4,7 +4,7 @@ import Navbar from './navbar/navbar'
 import Home from './home/homePage'
 import NewBlog from './newBlog/newBlog'
 import BlogContent from './home/blogDetails'
-import data from './blogsData/blogsData'
+import data from './blogsData/blogsData.js'
 import SearchedWriter from './home/searchedWriter'
 /*in react router v6 Routes insted of Routes*/
 
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Router>
-        <div id="App">
+        <div id="App"  >
           <Navbar />
           
           <Routes>

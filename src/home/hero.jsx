@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import CalendarIcon from "./calendarIcon";
 import heroPic from '../assets/images/hero.jpeg';
 import '../css/animation.css'
@@ -9,7 +10,8 @@ const Hero = () => {
     let month = months[d.getMonth()];
     let day = d.getDate()
     let date = month + ' ' + day + ',' + year; 
-
+    
+  
 
 
     return ( 
