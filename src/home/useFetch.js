@@ -1,19 +1,29 @@
-import { useState,useEffect } from "react";
-import  blogs  from '../blogsData/blogsData.js';
+import { useState, useEffect, useRef } from "react";
+import { db } from '../firebase/firebase';
+import { onValue, ref } from "firebase/database";
 
-const useFech =()=>{
-    const [data,setData] = useState(null)
-    const [isLoading , setIsLoading] = useState(true)
+const useFech = () => {
+  const [blogs, setBlogs] = useState([]);
+  const onValueRef = useRef(null);
 
-    useEffect(()=>{ 
-   
-        const  fetch = ()=>{
-           setData(blogs)
-           setIsLoading(false)
-         }
-         fetch()
-           
-    },[blogs]);
-    return {data,isLoading}
-}
+  useEffect(() => {
+    onValueRef.current = onValue(ref(db), (snapshot) => {
+      const data = snapshot.val();
+      if (data !== null) {
+        const blogArray = Object.values(data);
+        setBlogs(blogArray);
+      }
+    });
+
+    return () => {
+      // Cleanup the listener when the component unmounts
+      if (onValueRef.current) {
+        onValueRef.current();
+      }
+    };
+  }, []);
+
+  return blogs || [];
+};
+
 export default useFech;

@@ -54,16 +54,40 @@ export default function SearchAppBar(props) {
     setSearchValue(event.target.value);
 
   };
+const data = props.data;
 
-  const handleSearch = () => {
-    const result = props.data.filter((blog) => (blog.author).toUpperCase() === (searchValue).toUpperCase() || (blog.title).toUpperCase() === searchValue.toUpperCase());
-    if(result.length >0){
-    setSearchValue(''); 
-    navigate('/search-by-writer',{state:{searchResult:result}});}
-    else{
-      alert('blog not found')
+
+const handleSearch = () => {
+  const searchResult = [];
+
+  data.forEach((item) => {
+    const author = item.todo.author.toLowerCase();
+    const title = item.todo.title.toLowerCase();
+    const searchValueLower = searchValue.toLowerCase();
+
+    if (author.includes(searchValueLower) || title.includes(searchValueLower)) {
+      searchResult.push(item);
     }
-  };
+  });
+
+  if (searchResult.length > 0) {
+    setSearchValue('');
+    navigate('/search-by-writer', { state: { searchResult } });
+  } else {
+    alert('Blog not found');
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
   return (

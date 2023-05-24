@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import headerLogo from "../assets/images/whiteLogo.png";
-import data from "../blogsData/blogsData.js";
+
 import NavbarIcon from "./navbarIcon";
 import SearchAppBar from "./searchBar";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [navClassName, setnavClassName] = useState(
     "hidden md:flex md:flex-row  flex-col justify-center items-center  m-auto  text-white"
   );
@@ -16,6 +16,11 @@ const Navbar = () => {
   const [sideBarClassName, setSideBarClassName] = useState("hidden");
 
   const sideMenu = () => {
+    const newSideBarClassName =
+      sideBarClassName === "hidden"
+        ? "border-l-2 flex flex-col justify-start items-center m-auto float-right h-screen p-2 gap-4 md:hidden  bg-[#161819] w-[50vw] w-[50vw] slideIn"
+        : "hidden";
+
     const newNavClassName =
       navClassName ===
       "hidden md:flex md:flex-row  flex-col justify-center items-center  m-auto  text-white"
@@ -28,18 +33,11 @@ const Navbar = () => {
         ? "float-right md:hidden text-3xl bg-slate-500 p-2 text-white rounded-md m-[20px]"
         : "float-right md:hidden text-3xl bg-slate-500 p-2 text-white rounded-md  m-[20px]";
 
-    const newSideBarClassName =
-      sideBarClassName === "hidden"
-        ? "border-l-2  flex-col float-right h-screen p-2 gap-4 md:hidden flex bg-[#161819] z-auto w-[50vw] w-screen transition-all duration-500"
-        : "hidden";
-
     setnavClassName(newNavClassName);
     setIconClassName(newIconClassName);
     setSideBarClassName(newSideBarClassName);
   };
-
-
-
+  const data = props.data;
   return (
     <div className="bg-[#161819] w-screen">
       <nav
@@ -97,17 +95,37 @@ const Navbar = () => {
           <Link
             className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto"
             to="/Story-Time"
-            
+            onClick={() => {
+              setSideBarClassName("hidden");
+              setnavClassName("flex");
+            }}
+            onBlur={() => {
+              
+                setSideBarClassName("flex");
+                setnavClassName("hidden");
+              
+            }}
           >
             Home
           </Link>
+
           <Link
             className="hover:bg-slate-700 p-4 rounded-md hover:text-white m-auto"
             to="/New-Blog"
+            onClick={() => {
+              setSideBarClassName("hidden");
+              setnavClassName("flex");
+            }}
+            onBlur={() => {
+              
+                setSideBarClassName("flex");
+                setnavClassName("hidden");
+              
+            }}
           >
             New blog
           </Link>
-          <SearchAppBar data={data} />
+          <SearchAppBar data={data}/>
         </div>
       </div>
     </div>
