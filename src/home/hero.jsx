@@ -15,7 +15,7 @@ const Hero = () => {
     return ( 
         <div id="hero" className=" flex flex-col md:flex-row justify-around items-center flex-wrap p-12 m-auto md:h-auto bg-[#262A2E] float-left animation">
             <div id="text" className="flex flex-col w-full md:w-[40%]  m-auto space-x-1 gap-8 tracking-widest ">
-                <h1 className="text-[40px] text-white hover:underline hover:underline-offset-8 hover:decoration-[#64429e] transition-all duration-500">Never let your memories be greater than your dreams </h1>
+                <h1 className="text-[40px] text-white hover:underline hover:underline-offset-8 hover:decoration-[#64429e] transition-all duration-500">Without memory, there is no healing </h1>
                 <p className="text-[18px] text-white ">Before long the searchlight discovered some distance away a schooner with all sails set, apparently the same vessel which had been noticed earlier in the evening.</p>
                 <div id="date" className="flex flex-row space-x-4">
                     <i className="text-gray-500">
